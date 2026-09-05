@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVCCRUDScaffolding.Models;
+
 namespace MVCCRUDScaffolding
 {
     public class Program
@@ -8,6 +11,13 @@ namespace MVCCRUDScaffolding
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // DI for my DbContext
+            builder.Services.AddDbContext
+            <ApplicationDbContext>(options =>
+                options.UseSqlServer
+                (builder.Configuration.GetConnectionString
+                ("DefaultConnection")));
 
             var app = builder.Build();
 
