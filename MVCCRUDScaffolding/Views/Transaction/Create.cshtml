@@ -1,0 +1,70 @@
+@model MVCCRUDScaffolding.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AccountNumber" class="control-label"></label>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AccountOwner" class="control-label"></label>
+                <input asp-for="AccountOwner" class="form-control" />
+                <span asp-validation-for="AccountOwner" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BankName" class="control-label"></label>
+                <input asp-for="BankName" class="form-control" />
+                <span asp-validation-for="BankName" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Amount" class="control-label"></label>
+                        <input asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label"></label>
+                        <input asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="Create"
+                               class="btn btn-primary
+                        w-100" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <a asp-action="Index"
+                           class="btn btn-secondary
+                        w-100">Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

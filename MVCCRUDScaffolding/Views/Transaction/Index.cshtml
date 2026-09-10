@@ -1,0 +1,77 @@
+@model IEnumerable<MVCCRUDScaffolding.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transactions</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-success">
+        <i class="fa-solid fa-circle-plus"></i>
+        &nbsp;Create New
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountOwner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.AccountOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Date)
+            </td>
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.TransactionId"
+                       class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a asp-action="Details"
+                       asp-route-id="@item.TransactionId"
+                       class="btn btn-success">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+                    <a asp-action="Delete"
+                       asp-route-id="@item.TransactionId"
+                       class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>
